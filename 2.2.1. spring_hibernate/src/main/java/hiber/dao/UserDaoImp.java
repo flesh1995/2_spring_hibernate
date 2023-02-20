@@ -26,4 +26,10 @@ public class UserDaoImp implements UserDao {
       return query.getResultList();
    }
 
+   @Override
+   public User getUserCar(String model, int series) {
+      return null;
+   }
+
+
 }
