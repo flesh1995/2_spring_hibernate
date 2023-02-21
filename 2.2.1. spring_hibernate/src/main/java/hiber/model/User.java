@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Table(name = "users")
 public class User {
    @OneToOne(mappedBy = "user")
-   @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+   @MapsId
    private Car car;
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,6 +26,13 @@ public class User {
    public User() {}
    
    public User(String firstName, String lastName, String email) {
+      this.firstName = firstName;
+      this.lastName = lastName;
+      this.email = email;
+   }
+
+   public User(Car car, String firstName, String lastName, String email) {
+      this.car = car;
       this.firstName = firstName;
       this.lastName = lastName;
       this.email = email;
